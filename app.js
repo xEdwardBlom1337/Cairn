@@ -36,13 +36,13 @@ io.on('connection', function (socket) {
     }
 
     async function pushPic() {
-        for (let i = 0; i < 3; i++) {
-            data.pics.push(await getPic());
-        }
+        data.pics.push(await getPic());
         socket.emit('initData', data);
     }
     
-    pushPic();
+    for (let i = 0; i < 3; i++) {
+        pushPic();
+    }
     
     
     
