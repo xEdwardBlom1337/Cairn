@@ -1,4 +1,5 @@
 var container = document.getElementById('container');
+var root = document.documentElement;
 
 var pics = [];
 var displayedPics = [];
@@ -21,6 +22,11 @@ function animate() {
             displayedPics.push(pic);
         }
     }
+
+    
+    let oldX = window.getComputedStyle(root).getPropertyValue('--x-dif').slice(0, -2);
+    console.log(oldX);
+    root.style.setProperty('--x-dif', Number(oldX) + 1 + "px")
     
     requestAnimationFrame(animate);
 }
