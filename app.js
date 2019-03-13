@@ -20,7 +20,7 @@ io.on('connection', function (socket) {
     }; 
     function getPic() {      
         return new Promise(resolve => {
-            https.get("https://dog.ceo/api/breed/cairn/images/random", res => {
+            https.get("https://dog.ceo/api/breed/husky/images/random", res => {
                 res.setEncoding("utf8");
                 let body = "";
                 res.on("data", data => {
@@ -44,15 +44,4 @@ io.on('connection', function (socket) {
         pushPic();
     }
     
-    
-    
-    
-    
-    /* socket.on('sendData', function (data) {
-    }); */
 });
-
-/* 
-console.log('error:', error); // Print the error if one occurred
-console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-console.log('body:', body); // Print the HTML for the Google homepage. */
