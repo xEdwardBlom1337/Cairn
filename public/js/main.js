@@ -13,6 +13,7 @@ socket.on('initData', function (data) {
     
 });
 
+
 function animate() {
     for (pic of pics) {
         if (!displayedPics.includes(pic)) {
@@ -23,11 +24,24 @@ function animate() {
         }
     }
 
+    if (container.children.length != 0) {
+        let picWidth = Number(window.getComputedStyle(root).getPropertyValue('--previous-img-width').slice(0, -2));
+        let xDif = Number(window.getComputedStyle(root).getPropertyValue('--x-dif').slice(0, -2));
+        
+        
+        if (picWidth != 0 && xDif > picWidth) {
+            container.removeChild(container.children[0]);
+            root.style.setProperty('--x-dif', "0px");
+        }
+    }
     
     let oldX = window.getComputedStyle(root).getPropertyValue('--x-dif').slice(0, -2);
-    console.log(oldX);
-    root.style.setProperty('--x-dif', Number(oldX) + 1 + "px")
+    root.style.setProperty('--x-dif', Number(oldX) + 1 + "px");
     
+    if (container.children.length != 0) {
+        root.style.setProperty('--previous-img-width', container.children[0].offsetWidth + "px")
+    }
+
     requestAnimationFrame(animate);
 }
 
