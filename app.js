@@ -40,7 +40,7 @@ io.on('connection', function (socket) {
         socket.emit('initData', data);
     }
     
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
         pushPic();
     }
     
