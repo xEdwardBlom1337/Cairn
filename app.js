@@ -20,7 +20,7 @@ io.on('connection', function (socket) {
     };
     function getPic() {      
         return new Promise(resolve => {
-            https.get("https://dog.ceo/api/breed/kuvasz/images/random", res => {
+            https.get("https://dog.ceo/api/breed/husky/images/random", res => {
                 res.setEncoding("utf8");
                 let body = "";
                 res.on("data", data => {
